@@ -1,0 +1,31 @@
+Gunakan paket ini sebagai pipeline database PGN untuk proyek Chessreps.
+
+Tujuan:
+1. Mengunduh PGN TWIC.
+2. Mengunduh official Lichess Broadcast PGN.
+3. Menggabungkan seluruh PGN.
+4. Menghapus duplikat.
+5. Memfilter game yang melibatkan pemain dengan Elo minimal tertentu.
+6. Menghasilkan master_games_clean.pgn dan gm_games.pgn.
+
+Prioritas database:
+- TWIC untuk game turnamen/profesional.
+- Lichess Broadcast untuk official broadcast.
+- Jangan gunakan seluruh Lichess standard rated database untuk MVP karena ukurannya sangat besar dan penuh noise.
+
+Setelah database tersedia, bantu buat pipeline berikut:
+PGN -> opening/ECO -> move tree -> frequency -> repertoire -> spaced repetition.
+
+Untuk Chessreps, idealnya setiap opening line menyimpan:
+- ECO
+- opening name
+- SAN moves
+- FEN setelah setiap ply
+- jumlah game
+- win/draw/loss
+- pemain GM yang memainkan line
+- event/tahun
+- parent line
+- child variations
+
+Jangan menganggap semua game sebagai GM game hanya karena berasal dari Lichess Broadcast; gunakan metadata Elo/title bila tersedia.
